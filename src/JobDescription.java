@@ -17,7 +17,7 @@ public class JobDescription {
 
     //Prints the job description information
     public void displayJob() {
-        System.out.println("Job Title: " + jobTitle);
+        System.out.println("\nJob Title: " + jobTitle);
         System.out.println("Required Skills: "+ requiredSkills);
         System.out.println("Minimum Experience: " + requiredExperienceYears);
     }
