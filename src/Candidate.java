@@ -17,6 +17,7 @@ public class Candidate {
         this.skills = skills;
     }
 
+    //Prints the candidate's information
     public void displayInfo(){
         System.out.println("\nCandidate Name: " + name);
         System.out.println("Email Address: " + email);
