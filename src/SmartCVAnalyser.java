@@ -6,7 +6,9 @@ public class SmartCVAnalyser {
         skills.add("Java");
         skills.add("Python");
         skills.add("Excel");
+
         Candidate c1Test = new Candidate("Victor A", "vicand0502@test.com", "BSc Cyber Sec", 1, skills);
-        System.out.println(c1Test.name);
+
+        c1Test.displayInfo();
     }
 }

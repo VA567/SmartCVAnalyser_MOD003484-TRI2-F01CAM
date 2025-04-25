@@ -18,7 +18,7 @@ public class Candidate {
     }
 
     public void displayInfo(){
-        System.out.println("Candidate Name: " + name);
+        System.out.println("\nCandidate Name: " + name);
         System.out.println("Email Address: " + email);
         System.out.println("Education: " + education);
         System.out.println("Years of Experience: " + yearsOfExperience);
