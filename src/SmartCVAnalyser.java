@@ -3,6 +3,10 @@ import java.util.ArrayList; //This package is required to use and create ArrayLi
 
 public class SmartCVAnalyser {
     public static void main(String[] args) {
+
+        String filePath = "scr/candidate_data.txt"; //The file path
+        String candidateFileContent = FileParser.readTxtFile(filePath); //Uses the file parser read txt file method that will find the file with the file path and read it
+
         //This will be replaced with the text parser
         //Stores the skills the candidate has
         ArrayList<String> candidateSkills = new ArrayList<>();
@@ -27,6 +31,9 @@ public class SmartCVAnalyser {
         int maxScore = (jd1Test.requiredSkills.size() * 10) + 10; //Calculates and stores the maximum score as an integer
 
         //Printing the results
+        System.out.println("---- Candidate File Contents ----");
+        System.out.println(candidateFileContent);
+
         System.out.println("\n--- Candidate Information ---");
         c1Test.displayInfo();
 
