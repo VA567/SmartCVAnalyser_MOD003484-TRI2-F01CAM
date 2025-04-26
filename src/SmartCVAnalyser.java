@@ -1,9 +1,13 @@
 //Importing Packages
+import java.io.SyncFailedException;
 import java.util.ArrayList; //This package is required to use and create ArrayLists
 import java.util.Scanner; //This package is required to get user input and store it as a variable
+import java.io.IOException; //Required for catching errors
 
 public class SmartCVAnalyser {
     public static void main(String[] args) {
+        //Variables
+        int yearsOfExperience;
 
         Scanner readUserInput = new Scanner(System.in); //Create scanner object
 
@@ -16,9 +20,10 @@ public class SmartCVAnalyser {
         //This will be replaced with the text parser
         //Stores the skills the candidate has
         ArrayList<String> candidateSkills = new ArrayList<>();
-        candidateSkills.add("Java");
-        candidateSkills.add("Python");
-        candidateSkills.add("SQL");
+
+        for (int i = 4; i < lines.length; i++) {
+            candidateSkills.add(lines[i]);
+        }
 
         //Stores the skills required for the job
         ArrayList<String> jobSkills = new ArrayList<>();
@@ -26,11 +31,13 @@ public class SmartCVAnalyser {
         jobSkills.add("Python");
         jobSkills.add("HTML");
 
+        yearsOfExperience = Integer.parseInt(lines[3]); //Cast the data type of the variable from a string to an integer
+
         //Creates Candidate object
-        Candidate c1Test = new Candidate("Victor A", "vicand0502@test.com", "BSc Cyber Sec", 1, candidateSkills);
+        Candidate c1Test = new Candidate(lines[0], lines[1], lines[2], yearsOfExperience, candidateSkills);
 
         //Creates JobDescription object
-        JobDescription jd1Test = new JobDescription("Junior Engineer", jobSkills, 3);
+        JobDescription jd1Test = new JobDescription("Junior Engineer", jobSkills, 3); //This can be changed
 
         //Calculates Score
         int matchScore = CVChecker.calculateMatchScore(c1Test, jd1Test); //Calculates candidate's score by comparing it with the job requirements, this is store as an integer
