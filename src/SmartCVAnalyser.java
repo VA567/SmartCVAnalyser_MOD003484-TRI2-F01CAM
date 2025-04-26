@@ -1,10 +1,14 @@
 //Importing Packages
 import java.util.ArrayList; //This package is required to use and create ArrayLists
+import java.util.Scanner; //This package is required to get user input and store it as a variable
 
 public class SmartCVAnalyser {
     public static void main(String[] args) {
 
-        String filePath = "scr/candidate_data.txt"; //The file path
+        Scanner readUserInput = new Scanner(System.in); //Create scanner object
+
+        System.out.println("Enter file path"); //Prompt the user
+        String filePath = readUserInput.nextLine(); //Gets file path from user and stores it as a string
         String candidateFileContent = FileParser.readTxtFile(filePath); //Uses the file parser read txt file method that will find the file with the file path and read it
 
         //This will be replaced with the text parser
