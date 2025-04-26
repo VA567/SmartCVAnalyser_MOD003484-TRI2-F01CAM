@@ -1,8 +1,6 @@
 //Importing Packages
-import java.io.SyncFailedException;
 import java.util.ArrayList; //This package is required to use and create ArrayLists
 import java.util.Scanner; //This package is required to get user input and store it as a variable
-import java.io.IOException; //Required for catching errors
 
 public class SmartCVAnalyser {
     public static void main(String[] args) {
