@@ -18,5 +18,6 @@ public class FileParser {
         }
 
         return content.toString();
+    }
 }
 
