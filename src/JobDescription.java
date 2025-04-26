@@ -1,5 +1,4 @@
 //Importing Packages
-import java.lang.reflect.Array;
 import java.util.ArrayList; //This package is required to use and create ArrayLists
 
 public class JobDescription {

@@ -3,7 +3,6 @@ public class CVChecker {
     public static int calculateMatchScore(Candidate candidate, JobDescription job){
         //Variables
         int score = 0; //Stores the raw score as an integer
-        int maxScore = (job.requiredSkills.size() * 10) + 10; //Calculates and stores the maximum score as an integer
 
         //Calculates the score for the skills
         for (String requiredSkill : job.requiredSkills) {
