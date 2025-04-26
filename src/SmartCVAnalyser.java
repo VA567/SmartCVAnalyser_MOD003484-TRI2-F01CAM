@@ -11,6 +11,8 @@ public class SmartCVAnalyser {
         String filePath = readUserInput.nextLine(); //Gets file path from user and stores it as a string
         String candidateFileContent = FileParser.readTxtFile(filePath); //Uses the file parser read txt file method that will find the file with the file path and read it
 
+        String[] lines = candidateFileContent.split("\n"); //Splits the file so each line can be read separately
+
         //This will be replaced with the text parser
         //Stores the skills the candidate has
         ArrayList<String> candidateSkills = new ArrayList<>();
