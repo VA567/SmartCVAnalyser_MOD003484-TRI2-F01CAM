@@ -33,6 +33,7 @@ public class FileParser {
 
     public static String readDocxFile(String filePath){
         StringBuilder content = new StringBuilder();
+
         try (FileInputStream fis = new FileInputStream(filePath);
              XWPFDocument document = new XWPFDocument(fis)) {
 

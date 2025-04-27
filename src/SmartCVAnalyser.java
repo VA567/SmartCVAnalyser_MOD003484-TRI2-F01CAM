@@ -6,16 +6,23 @@ public class SmartCVAnalyser {
     public static void main(String[] args) {
         //Variables
         int yearsOfExperience;
-
         Scanner readUserInput = new Scanner(System.in); //Create scanner object
+        String[] lines = null;
+        String candidateFileContent = "";
 
         System.out.println("Enter file path"); //Prompt the user
         String filePath = readUserInput.nextLine(); //Gets file path from user and stores it as a string
-        String candidateFileContent = FileParser.readTxtFile(filePath); //Uses the file parser read txt file method that will find the file with the file path and read it
 
-        String[] lines = candidateFileContent.split("\n"); //Splits the file so each line can be read separately
+        //Detects if the file path ends with .txt
+        if (filePath.endsWith(".txt")) {
+            candidateFileContent = FileParser.readTxtFile(filePath); //Uses the file parser to read txt file
+            lines = candidateFileContent.split("\n"); //Splits the file so each line can be read separately
+        }
 
-        //This will be replaced with the text parser
+        else if (filePath.endsWith(".docx")) {
+            candidateFileContent = FileParser.readDocxFile(filePath); //Uses the file parser to read the docx file
+            lines = candidateFileContent.split("\n");
+        }
         //Stores the skills the candidate has
         ArrayList<String> candidateSkills = new ArrayList<>();
 
