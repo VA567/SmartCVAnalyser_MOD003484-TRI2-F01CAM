@@ -36,7 +36,7 @@ public class SmartCVAnalyser {
         ArrayList<String> candidateSkills = new ArrayList<>();
 
         for (int i = 4; i < lines.length; i++) {
-            candidateSkills.add(lines[i]);
+            candidateSkills.add(lines[i].toLowerCase());
         }
 
         //Stores the skills required for the job
