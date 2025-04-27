@@ -41,9 +41,9 @@ public class SmartCVAnalyser {
 
         //Stores the skills required for the job
         ArrayList<String> jobSkills = new ArrayList<>();
-        jobSkills.add("Java");
-        jobSkills.add("Python");
-        jobSkills.add("HTML");
+        jobSkills.add("java");
+        jobSkills.add("python");
+        jobSkills.add("html");
 
         yearsOfExperience = Integer.parseInt(lines[3].trim()); //Cast the data type of the variable from a string to an integer, trim removes hidden characters, like spaces, from the beginning and end of the string
 
