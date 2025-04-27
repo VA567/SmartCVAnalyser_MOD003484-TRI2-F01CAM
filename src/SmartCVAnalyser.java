@@ -23,6 +23,15 @@ public class SmartCVAnalyser {
             candidateFileContent = FileParser.readDocxFile(filePath); //Uses the file parser to read the docx file
             lines = candidateFileContent.split("\n");
         }
+
+        else if (filePath.endsWith(".pdf")) {
+            candidateFileContent = FileParser.readPdfFile(filePath);
+            lines = candidateFileContent.split("\n");
+        }
+        else {
+            System.out.println("\n- File extension not accepted. Only pdf, docx, txt\n");
+        }
+
         //Stores the skills the candidate has
         ArrayList<String> candidateSkills = new ArrayList<>();
 
@@ -36,7 +45,7 @@ public class SmartCVAnalyser {
         jobSkills.add("Python");
         jobSkills.add("HTML");
 
-        yearsOfExperience = Integer.parseInt(lines[3]); //Cast the data type of the variable from a string to an integer
+        yearsOfExperience = Integer.parseInt(lines[3].trim()); //Cast the data type of the variable from a string to an integer, trim removes hidden characters, like spaces, from the beginning and end of the string
 
         //Creates Candidate object
         Candidate c1Test = new Candidate(lines[0], lines[1], lines[2], yearsOfExperience, candidateSkills);

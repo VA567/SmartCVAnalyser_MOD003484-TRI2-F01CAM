@@ -1,12 +1,15 @@
 //Importing Packages
-import java.io.BufferedReader; //This is required to read files faster
-import java.io.FileReader; //Required for reading files
-import java.io.IOException; //Required for catching errors
-
+import java.io.*;
+//Packages needed for reading Docx files
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import java.io.FileInputStream;
+
 import java.util.List;
+//Packages needed for reading PDF files
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import java.io.IOException;
+import org.apache.pdfbox.Loader;
 
 public class FileParser {
     //File reading method
@@ -47,5 +50,17 @@ public class FileParser {
 
         return content.toString();
     }
-}
 
+    public static String readPdfFile(String filePath) {
+        StringBuilder content = new StringBuilder();
+
+        try (PDDocument document = Loader.loadPDF(new File(filePath))){
+            PDFTextStripper pdfStripper = new PDFTextStripper();
+            content.append(pdfStripper.getText(document));
+        } catch (Exception e) {
+            System.out.println("An error occurred while reading the PDF file: " + e.getMessage());
+        }
+
+        return content.toString();
+    }
+}
