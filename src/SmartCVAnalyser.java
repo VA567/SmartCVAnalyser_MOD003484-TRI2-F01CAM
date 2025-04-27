@@ -1,3 +1,8 @@
+/*
+SID: 2404938
+Team Name: Diverse Pen Testers
+ */
+
 //Importing Packages
 import java.util.ArrayList; //This package is required to use and create ArrayLists
 import java.util.Scanner; //This package is required to get user input and store it as a variable
@@ -15,17 +20,20 @@ public class SmartCVAnalyser {
 
         //Detects if the file path ends with .txt
         if (filePath.endsWith(".txt")) {
-            candidateFileContent = FileParser.readTxtFile(filePath); //Uses the file parser to read txt file
+            candidateFileContent = FileParser.readTxtFile(filePath);//Uses the file parser to read txt file
+            candidateFileContent = candidateFileContent.replaceAll("(?m)^[ \t]*\r?\n", ""); //
             lines = candidateFileContent.split("\n"); //Splits the file so each line can be read separately
         }
 
         else if (filePath.endsWith(".docx")) {
             candidateFileContent = FileParser.readDocxFile(filePath); //Uses the file parser to read the docx file
+            candidateFileContent = candidateFileContent.replaceAll("(?m)^[ \t]*\r?\n", "");
             lines = candidateFileContent.split("\n");
         }
 
         else if (filePath.endsWith(".pdf")) {
             candidateFileContent = FileParser.readPdfFile(filePath);
+            candidateFileContent = candidateFileContent.replaceAll("(?m)^[ \t]*\r?\n", "");
             lines = candidateFileContent.split("\n");
         }
         else {
