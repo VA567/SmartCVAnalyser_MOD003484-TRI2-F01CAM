@@ -3,6 +3,11 @@ import java.io.BufferedReader; //This is required to read files faster
 import java.io.FileReader; //Required for reading files
 import java.io.IOException; //Required for catching errors
 
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import java.io.FileInputStream;
+import java.util.List;
+
 public class FileParser {
     //File reading method
     public static String readTxtFile(String filePath) {
@@ -24,6 +29,22 @@ public class FileParser {
         }
 
         return content.toString(); //Converts the StringBuilder into a string and sends it back to the origin
+    }
+
+    public static String readDocxFile(String filePath){
+        StringBuilder content = new StringBuilder();
+        try (FileInputStream fis = new FileInputStream(filePath);
+             XWPFDocument document = new XWPFDocument(fis)) {
+
+            List<XWPFParagraph> paragraphs = document.getParagraphs();
+            for (XWPFParagraph para : paragraphs) {
+                content.append(para.getText()).append("\n");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the DOCX file: " + e.getMessage());
+        }
+
+        return content.toString();
     }
 }
 
