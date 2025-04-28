@@ -59,7 +59,7 @@ public class SmartCVAnalyser {
         ArrayList<String> jobSkills = new ArrayList<>();
 
         for (int i = 0; i < numberOfSkillsInt; i++) {
-            System.out.println("Enter the skill " + i);
+            System.out.println("Enter the skill " + (i + 1));
             String jobSkill1 = readUserInput.nextLine();
             jobSkills.add(jobSkill1.toLowerCase());
         }
