@@ -64,8 +64,8 @@ public class SmartCVAnalyser {
             jobSkills.add(jobSkill1.toLowerCase());
         }
 
+        System.out.println("Enter the minimum years of experience");
         String experienceRequired = readUserInput.nextLine(); //gets the user's input for the number of years of experience required
-
         int experienceRequiredInt = Integer.parseInt(experienceRequired); //Casts the data type from string to integer
 
         yearsOfExperience = Integer.parseInt(lines[3].trim()); //Cast the data type of the variable from a string to an integer, trim removes hidden characters, like spaces, from the beginning and end of the string
