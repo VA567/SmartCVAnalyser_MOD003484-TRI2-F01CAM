@@ -48,10 +48,18 @@ public class SmartCVAnalyser {
         }
 
         //Stores the skills required for the job
+        String jobSkill1 = readUserInput.nextLine();
+        String jobSkill2 = readUserInput.nextLine();
+        String jobSkill3 = readUserInput.nextLine();
+
         ArrayList<String> jobSkills = new ArrayList<>();
-        jobSkills.add("java");
-        jobSkills.add("python");
-        jobSkills.add("html");
+        jobSkills.add(jobSkill1);
+        jobSkills.add(jobSkill2);
+        jobSkills.add(jobSkill3);
+
+        String experienceRequired = readUserInput.nextLine(); //gets the user's input for the number of years of experience required
+
+        int experienceRequiredInt = Integer.parseInt(experienceRequired); //Casts the data type from string to integer
 
         yearsOfExperience = Integer.parseInt(lines[3].trim()); //Cast the data type of the variable from a string to an integer, trim removes hidden characters, like spaces, from the beginning and end of the string
 
@@ -59,15 +67,13 @@ public class SmartCVAnalyser {
         Candidate c1Test = new Candidate(lines[0], lines[1], lines[2], yearsOfExperience, candidateSkills);
 
         //Creates JobDescription object
-        JobDescription jd1Test = new JobDescription("Junior Engineer", jobSkills, 3); //This can be changed
+        JobDescription jd1Test = new JobDescription("Junior Engineer", jobSkills, experienceRequiredInt);
 
         //Calculates Score
         int matchScore = CVChecker.calculateMatchScore(c1Test, jd1Test); //Calculates candidate's score by comparing it with the job requirements, this is store as an integer
         int maxScore = (jd1Test.requiredSkills.size() * 10) + 10; //Calculates and stores the maximum score as an integer
 
         //Printing the results
-        System.out.println("---- Candidate File Contents ----");
-        System.out.println(candidateFileContent);
 
         System.out.println("\n--- Candidate Information ---");
         c1Test.displayInfo();
