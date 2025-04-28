@@ -40,6 +40,9 @@ public class SmartCVAnalyser {
             System.out.println("\n- File extension not accepted. Only pdf, docx, txt\n");
         }
 
+
+        String jobTitle = readUserInput.nextLine();
+
         //Stores the skills the candidate has
         ArrayList<String> candidateSkills = new ArrayList<>();
 
@@ -67,14 +70,13 @@ public class SmartCVAnalyser {
         Candidate c1Test = new Candidate(lines[0], lines[1], lines[2], yearsOfExperience, candidateSkills);
 
         //Creates JobDescription object
-        JobDescription jd1Test = new JobDescription("Junior Engineer", jobSkills, experienceRequiredInt);
+        JobDescription jd1Test = new JobDescription(jobTitle, jobSkills, experienceRequiredInt);
 
         //Calculates Score
         int matchScore = CVChecker.calculateMatchScore(c1Test, jd1Test); //Calculates candidate's score by comparing it with the job requirements, this is store as an integer
         int maxScore = (jd1Test.requiredSkills.size() * 10) + 10; //Calculates and stores the maximum score as an integer
 
         //Printing the results
-
         System.out.println("\n--- Candidate Information ---");
         c1Test.displayInfo();
 
