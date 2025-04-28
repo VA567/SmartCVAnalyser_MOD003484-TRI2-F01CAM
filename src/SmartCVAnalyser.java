@@ -37,7 +37,7 @@ public class SmartCVAnalyser {
             lines = candidateFileContent.split("\n");
         }
         else {
-            System.out.println("\n- File extension not accepted. Only pdf, docx, txt\n");
+            System.out.println("\n- File extension not accepted. Only pdf, docx and txt is supported\n");
         }
 
         System.out.println("Enter the job title");
