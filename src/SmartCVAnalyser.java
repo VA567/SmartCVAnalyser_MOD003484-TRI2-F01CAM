@@ -40,7 +40,7 @@ public class SmartCVAnalyser {
             System.out.println("\n- File extension not accepted. Only pdf, docx, txt\n");
         }
 
-
+        System.out.println("Enter the job title");
         String jobTitle = readUserInput.nextLine();
 
         //Stores the skills the candidate has
@@ -51,14 +51,18 @@ public class SmartCVAnalyser {
         }
 
         //Stores the skills required for the job
-        String jobSkill1 = readUserInput.nextLine();
-        String jobSkill2 = readUserInput.nextLine();
-        String jobSkill3 = readUserInput.nextLine();
+        System.out.println("Enter the number of skills");
+        String numberOfSkills = readUserInput.nextLine();
+
+        int numberOfSkillsInt = Integer.parseInt(numberOfSkills);
 
         ArrayList<String> jobSkills = new ArrayList<>();
-        jobSkills.add(jobSkill1);
-        jobSkills.add(jobSkill2);
-        jobSkills.add(jobSkill3);
+
+        for (int i = 0; i < numberOfSkillsInt; i++) {
+            System.out.println("Enter the skill " + i);
+            String jobSkill1 = readUserInput.nextLine();
+            jobSkills.add(jobSkill1.toLowerCase());
+        }
 
         String experienceRequired = readUserInput.nextLine(); //gets the user's input for the number of years of experience required
 
@@ -70,7 +74,7 @@ public class SmartCVAnalyser {
         Candidate c1Test = new Candidate(lines[0], lines[1], lines[2], yearsOfExperience, candidateSkills);
 
         //Creates JobDescription object
-        JobDescription jd1Test = new JobDescription(jobTitle, jobSkills, experienceRequiredInt);
+        JobDescription jd1Test = new JobDescription(jobTitle.toLowerCase(), jobSkills, experienceRequiredInt);
 
         //Calculates Score
         int matchScore = CVChecker.calculateMatchScore(c1Test, jd1Test); //Calculates candidate's score by comparing it with the job requirements, this is store as an integer
